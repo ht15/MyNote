@@ -26,7 +26,7 @@ message Test1 {
 
 按照上面的编码规则对此分析：
 
-- 08（0001000）对应的是**field_num + 3位bite的wire type**，最高位为0表示数据已到头，去掉最高位得到**001000**，所以field_num=1，wire type=0。
+- 08（00001000）对应的是**field_num + 3位bite的wire type**，最高位为0表示数据已到头，去掉最高位得到**0001000**，所以field_num=1，wire type=0。
 
 - 因为wire type为0所以接下来的就是a的值了（如果wire type是2，则表示变长类型，后面会紧跟表示数据长度的信息）。
 
@@ -48,3 +48,11 @@ message Test1 {
 - 新field生产的code解析旧消息时应该提供个默认值。 旧代码收到新消息时，新字段会被忽略。
 - 目标proto文件 至少要在某一个IMPORT_PATH中找到
 - 负数应该使用**sint32**而不是**int32**，**sin32**会使用zigzag编码即```Zigzag(n) = (n << 1) ^ (n >> 31)```
+- package相当于c++中的namespace
+
+
+
+### 疑问
+
+- repeated 关键字
+
