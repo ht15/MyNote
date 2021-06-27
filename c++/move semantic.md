@@ -23,3 +23,10 @@
 
 任何情况下都不用对局部变量使用move或者forward。编译器要么使用copy elision，要么默认当rvalue来使用
 
+## 善用pass by value
+
+有时候pass by value反而是更有效的一个选择。比如：
+
+- 可以简化代码（less source code and less object code)，因为value can be both copy and move
+- 对于string来说，当source string 长度大于 replace string长度时甚至省去了allocator和deallocator
+- 坏处就是多了个move操作。所以对于move操作比较耗得操作要慎重考虑。同时pass by value一定进行了拷贝，所以适用于一定进行copy的场景。同时也要处理**the slicing problem**
