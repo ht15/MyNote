@@ -1,3 +1,4 @@
+@echo off
 SET NAME=%~dp0
 echo %NAME%
 set allparam=
