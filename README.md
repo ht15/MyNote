@@ -1,15 +1,8 @@
 # MyNote
 测试 post-merge
 
-7
-
-7
-
-5
-
-2
-
-0
-
-！
-
+- cmake使用
+- git使用
+- c++代码组织（private、public头文件分离->权限控制；）
+- c#
+- 
