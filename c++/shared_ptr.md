@@ -25,3 +25,8 @@ p->Use() // CRASH
 多个control block的问题对this指针的引用也同样存在，为此出现了**enable_shared_from_this**。
 
 enable_shared_from_this的原理很简单：如果需要返回指向this的shared_ptr时，调用shared_from_this即可，在调用shared_from_this之前必须要存在指向this的shared_ptr，所以一般derived from enable_shared_from_this的类的构造函数都写成私有的，通过public static method来返回shared_ptr。同时在shared_ptr的构造函数中有一个友方法，当raw pointer的类型是enable_shared_from_this时，会产生一个weak_ptr。shared_from_this就是weak_ptr来构造新的shared_ptr的，这样一来this就对应了唯一的一个control_block
+
+
+
+## weak_ptr可以解决循环引用问题
+
