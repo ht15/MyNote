@@ -14,3 +14,9 @@
 
 - 使用C风格的接口
 
+
+
+## __memcpy_ssse3() segmentation fault
+
+如果出现这个问题并且跟踪堆栈发现crash在字符串拷贝，那么大概率就是ABI文件。首先需要排查gcc版本是否一致，如果检查发现编译库的gcc版本和可执行文件的gcc版本一致，那么要考虑开启CXX11的ABI设置是否一致(-D_GLIBCXX_USE_CXX11_ABI=0/1)
+
