@@ -8,4 +8,13 @@
     #endif
     ```
 
-    
+- -I，-L, -WI,-rpath
+
+    指定头文件搜索路径 -I
+
+    指定库搜索路径 -L. 为啥要配合-Wl,-rpath；另一个方法时[修改/etc/ld.so.conf](https://blog.csdn.net/mybelief321/article/details/9099659)
+
+    [Cmake设置rpath的方法](https://love.junzimu.com/archives/2758)：set_target_properties(myexe PROPERTIES INSTALL_RPATH "$ORIGIN;$ORIGIN/../lib")
+
+    其中[$ORIGIN](https://blog.csdn.net/chengyq116/article/details/104552007)为可执行文件的路径
+
