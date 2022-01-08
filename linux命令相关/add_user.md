@@ -14,6 +14,7 @@ else
 fi
 
 echo $pass | sudo passwd $name --stdin  &>/dev/null
+chage -M -1 $name
 if [ $? -eq 0 ];then
    echo "${name}'s password is set successfully"
 else
